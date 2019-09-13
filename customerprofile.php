@@ -22,8 +22,9 @@ require_once ("database.php");
 ?>
 <div class="container">
     <h1>PROFILE</h1>
+    <a class="btn btn-primary my-2 my-sm-0 menubuttons" href="customerprofileE.php" name="prof" style="margin-right: 1013px;">Edit Profile</a>
     <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-    <h2><?php echo $customer['customer_name'];?></h2>
+    <h2>Player Name: <?php echo $customer['customer_name'];?></h2>
     <table>
         <tr>
             <td><strong>About</strong></td>
@@ -37,10 +38,7 @@ require_once ("database.php");
             <td><strong>Gender</strong></td>
             <td class="profiletable"><?php echo $customer['customer_gender']?></td>
         </tr>
-        <tr>
-            <td><strong>Gender</strong></td>
-            <td class="profiletable"><?php echo $customer['customer_address']?></td>
-        </tr>
+       
         <tr>
             <td><strong>Phone</strong></td>
             <td class="profiletable"><?php echo $customer['customer_phone'] ?></td>
@@ -49,7 +47,9 @@ require_once ("database.php");
             <td><strong>Email</strong></td>
             <td class="profiletable"><?php echo $signup['email'] ?></td>
         </tr>
+      
     </table>
+    
     <hr>
     <h1>PREVIOUS BOOKINGS</h1>
     <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
