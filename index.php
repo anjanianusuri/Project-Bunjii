@@ -12,7 +12,7 @@
   <div class="container mainscreen">
     <div class="row">
       <div class="introcontent col-md-8">
-        <h1 class="">BOOK ANY FACILITY WITH US</h1>
+        <h1>BOOK ANY FACILITY WITH US</h1>
         <?php  if(isset($_SESSION['name'])){
             $name = $_SESSION['name'];
             echo "<h2 class='text-primary'>Welcome $name</h2>"; }?>

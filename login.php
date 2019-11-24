@@ -30,6 +30,9 @@
             else if($_GET['error'] === 'wrongpassword'){
                 echo "<p class='text-danger'>Please enter the correct password</p>";
             }
+            else if($_GET['error'] === 'usererror'){
+                echo "<p class='text-danger'>Sign in as a venue</p>";
+            }
         }?>
         <form action="include/login.inc.php" method="POST">
             <label for="email">E-Mail</label>

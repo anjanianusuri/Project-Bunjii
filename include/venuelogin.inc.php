@@ -6,12 +6,16 @@
 
         $email = mysqli_real_escape_string($conn, $_POST['email']);
         $password = mysqli_real_escape_string($conn, $_POST['password']);
+        $type = mysqli_real_escape_string($conn, $_POST['type']);
 
         if (empty($email) || empty($password)) {
-            redirect_to('../login.php?error=emptyfeilds&email=' . $email);
+            redirect_to('../venuelogin.php?error=emptyfeilds&email=' . $email);
         }
         else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            redirect_to('../login.php?error=invalidemail&name=' . $name);
+            redirect_to('../venuelogin.php?error=invalidemail&name=' . $name);
+        }
+        else if($type = 'customer'){
+           redirect_to('../venuelogin.php?error=usererror');
         }
         else {
 
@@ -20,14 +24,14 @@
             $sql = "select * from users where email='$email'";
             $result = mysqli_query($conn, $sql);
             if(!($result)){
-                redirect_to('../login.php?error=wrongpassword&email='.$email);
+                redirect_to('../venuelogin.php?error=wrongpassword&email='.$email);
             }
             $row = mysqli_fetch_assoc($result);
 
             $passwordCheck = password_verify($password, $row['password']);
 
             if($passwordCheck == false){
-                redirect_to('../login.php?error=wrongpassword&email='.$email);
+                redirect_to('../venuelogin.php?error=wrongpassword&email='.$email);
             }
             else if($passwordCheck == true){
                 session_start();
@@ -45,7 +49,7 @@
                 redirect_to('../index.php?login=success');
             }
             else{
-                    
+
                 redirect_to('../index.php?login=wrongpassword');
             }
         }

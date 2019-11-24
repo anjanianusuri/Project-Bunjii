@@ -13,6 +13,9 @@
         else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             redirect_to('../login.php?error=invalidemail&name=' . $name);
         }
+        else if($type = 'venue'){
+           redirect_to('../login.php?error=usererror');
+        }
         else {
 
             global $conn;
