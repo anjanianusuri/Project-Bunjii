@@ -23,15 +23,18 @@
                         echo "<p class='text-danger'>You already sent a request to us, we'll get in touch with you soon</p>";
                     }
                 }
+                else if(isset($_GET['signup'])){
+                  if($_GET['signup'] === 'success'){
+                  echo "<p class='text-success'>We'll get in touch with you soon</p>";
+                }
+                }
             ?>
-            <label for="name">Venue Name</label>
-            <input class = "form-control" type="text" id="name" name="name" value="<?php echo $name;?>" placeholder="Enter your Venue Name" />
+            <label for="name">Name</label>
+            <input class = "form-control" type="text" id="name" name="name" value="<?php echo $name;?>" placeholder="Enter your first name" />
             <small id="nMessage" class="form-text text-muted"></small>
             <label for="email">E-Mail</label>
             <input class = "form-control" type="text" id="email" name="email" value="<?php echo $email;?>" placeholder="Enter your email address" />
             <small id="eMessage" class="form-text text-muted"></small>
-            <label for="password">Password</label>
-            <input class = "form-control" type="password" id="password" name="password" value="" placeholder="Enter your Password" />
             <small id="passwordMessage" class="form-text text-muted"></small>
             <input class="btn btn-primary" type="submit" name="submit" id="submit"/>
         </form>
