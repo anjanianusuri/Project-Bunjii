@@ -7,6 +7,14 @@
 
         global $conn;
 
+
+        $file_name=$_FILES['file']['name'];
+        $file_type=$_FILES['file']['type'];
+        $file_size=$_FILES['file']['size'];
+        $file_tem_loc=$_FILES['file']['tmp_name'];
+        $file_store="uploads/".$file_name;
+        move_uploaded_file($file_tem_loc,$file_store);
+
         $name = mysqli_real_escape_string($conn, $_POST['name']);
         $email = mysqli_real_escape_string($conn, $_POST['email']);
         $password = mysqli_real_escape_string($conn, $_POST['password']);
@@ -44,7 +52,8 @@
 
                 $signupid = $signuprow['signupid'];
 
-                $profilesql = "insert into customer(signupid, customer_name, customer_email) values('$signupid', '$name', '$email')";
+               
+                $profilesql = "insert into customer(signupid, customer_name, customer_email,customer_profpic) values('$signupid', '$name', '$email','$file_name')";
                 $profileresult = mysqli_query($conn, $profilesql);
 
                 mysqli_close($conn);

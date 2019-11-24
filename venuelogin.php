@@ -8,9 +8,9 @@
 <div class="container">
 <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" href="login.php">Customer</a></li>
+                <a class="nav-link" href="login.php">Customer</a></li>
             <li class="nav-item">
-                <a class="nav-link" href="venuelogin.php">Venue</a>
+                <a class="nav-link active" href="venuelogin.php">Venue</a>
             </li>
 </ul>
     <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
@@ -31,11 +31,11 @@
                 echo "<p class='text-danger'>Please enter the correct password</p>";
             }
         }?>
-        <form action="include/login.inc.php" method="POST">
+        <form action="include/venuelogin.inc.php" method="POST">
             <label for="email">E-Mail</label>
-            <input class = "form-control" type="text" id="email" name="email" value="<?php echo $email?>" placeholder="Enter your email address" />
+            <input class = "form-control" type="text" id="email" name="email" value="<?php echo $email?>" placeholder="Enter your venue email address" />
             <label for="password">Password</label>
-            <input class = "form-control" type="password" id="password" name="password" placeholder="Enter your password"/>
+            <input class = "form-control" type="password" id="password" name="password" placeholder="Enter your venue password"/>
             <input class=" btn btn-primary" type="submit" name="submit" id="submit" value="Login"/>
         </form>
     </div>

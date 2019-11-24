@@ -20,7 +20,7 @@
           <?php while ($venue = mysqli_fetch_assoc($venueResult)) { ?>
 
           <div class="card" style="width:21rem; margin: 20px;">
-            <img class="card-img-top" src="images/sample.png" />
+            <img class="card-img-top" src="include/uploads/<?php echo $venue['venue_image'];?>" />
             <div class="card-body">
               <h2><?php echo $venue['venue_name']; ?></h2>
               <p><?php echo substr($venue['venue_desc'], 0, 140); ?></p>

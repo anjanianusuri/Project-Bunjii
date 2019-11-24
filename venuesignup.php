@@ -24,12 +24,14 @@
                     }
                 }
             ?>
-            <label for="name">Name</label>
-            <input class = "form-control" type="text" id="name" name="name" value="<?php echo $name;?>" placeholder="Enter your first name" />
+            <label for="name">Venue Name</label>
+            <input class = "form-control" type="text" id="name" name="name" value="<?php echo $name;?>" placeholder="Enter your Venue Name" />
             <small id="nMessage" class="form-text text-muted"></small>
             <label for="email">E-Mail</label>
             <input class = "form-control" type="text" id="email" name="email" value="<?php echo $email;?>" placeholder="Enter your email address" />
             <small id="eMessage" class="form-text text-muted"></small>
+            <label for="password">Password</label>
+            <input class = "form-control" type="password" id="password" name="password" value="" placeholder="Enter your Password" />
             <small id="passwordMessage" class="form-text text-muted"></small>
             <input class="btn btn-primary" type="submit" name="submit" id="submit"/>
         </form>

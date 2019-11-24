@@ -29,13 +29,25 @@ if(isset($_SESSION['user'])) {
 <div class="container">
     <h1>EDIT PROFILE</h1>
     <hr>
+    <div class="col-md-2">
+            <br>
+            <a href="cPicEditVenue.php" class="text-primary">Edit Picture>></a>
+        </div>
     <div class="col-md-6">
-        <form action="editvenue.inc.php" method="POST">
+ 
+        <form action="venueEdit.php" method="POST">
+        <input type="hidden" name="venue_id" value="<?php echo $venue_id;?>">
             <label for="name">Name</label>
-            <input id="name" class="form-control" type="text" value="<?php echo $venue['venue_name'];?>">
+            <input id="name" class="form-control" name="venue_name" type="text" value="<?php echo $venue['venue_name'];?>">
             <label for="desc">Description</label>
-            <textarea id="desc" class="form-control"><?php echo $venue['venue_desc'];?></textarea>
-            <label for=""
+            <textarea name="venue_desc" id="desc" class="form-control"><?php echo $venue['venue_desc'];?></textarea>
+           <label for="phone">Phone</label>
+            <input id="name" name="venue_phone" class="form-control" type="text" value="<?php echo $venue['venue_phone'];?>"> 
+            <label for="phone">Venue Type</label>
+            <input id="name" name="venue_type" class="form-control" type="text" value="<?php echo $venue['venue_type'];?>">
+            <input type="Submit" name="submit" value="Update Profile">
+ 
+
         </form>
     </div>
 </div>

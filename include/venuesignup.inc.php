@@ -9,7 +9,8 @@ if(isset($_POST['submit'])) {
 
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
-
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    
     if (empty($name) || empty($email)) {
         redirect_to('../venuesignup.php?error=emptyfeilds&name=' . $name . '&email=' . $email);
     }
@@ -24,10 +25,11 @@ if(isset($_POST['submit'])) {
             redirect_to('../venuesignup.php?error=userexists&name='.$name);
         }
         else{
+            $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
             $type = 'venue';
-            $sql = "insert into users(name, email, password, type) values('$name', '$email', '',  '$type')";
+            $sql = "insert into users(name, email, password, type) values('$name', '$email', '$hashedPwd',  '$type')";
             $result = mysqli_query($conn, $sql);
-
+            
             // Fetching signupid from users table to insert values into venue table
 
             $signupsql = "select * from users where email='$email'";

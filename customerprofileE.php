@@ -15,9 +15,16 @@ $customer = mysqli_fetch_assoc($customerResult);
 
 }
 ?>
+   
 <ul class="nav nav-tabs">
+
     <li class="nav-item">
+    
         <a class="nav-link active" href="#">Edit Profile</a></li>
+        <div class="col-md-6">
+            <br>
+            <a href="cPicEdit.php" class="text-primary">Edit Profile Picture>></a>
+        </div>
 </ul>
         <form action="customerprofileEdit.php" method="POST">
             <label for="name">ID</label>
@@ -37,7 +44,7 @@ $customer = mysqli_fetch_assoc($customerResult);
            
             <input class = "form-control" type="text"  name="address" value="<?php echo $customer['customer_address'];?>"/>
             <small id="nMessage" class="form-text text-muted"></small>
-    
+            
             <label for="name">Age</label>
             <input class = "form-control" type="text" name="age" value="<?php echo $customer['customer_age'];?>" />
            

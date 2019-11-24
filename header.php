@@ -27,12 +27,14 @@
     <ul class="navbar-nav mr-auto">
         <li class="nav-item"><a class="nav-link <?php echo $home ?>" href="index.php">Home</a></li>
         <li class="nav-item"><a class="nav-link <?php echo $facilities ?>" href="facilities.php">Facilities</a></li>
-        <li class="nav-item"><a class="nav-link <?php echo $about ?>" href="#">About Us</a></li>
+        <li class="nav-item"><a class="nav-link <?php echo $about ?>" href="about.php">About Us</a></li>
         <li class="nav-item"><a class="nav-link <?php echo $contact ?>" href="contact.php">Contact Us</a></li>
     </ul>
     <?php if(isset($_SESSION['user'])){ ?>
         <a class="btn btn-primary my-2 my-sm-0 menubuttons" href="profilecheck.php" name="profile">Profile</a>
+     
         <a class="btn btn-primary my-2 my-sm-0 menubuttons" href="logout.php" name="logout">Logout</a>
+       
     <?php } else{ ?>
         <a class="btn btn-primary  my-2 my-sm-0 menubuttons" href="login.php" name="login">Login</a>
         <a class="btn btn-primary my-2 my-sm-0 menubuttons" href="customersignup.php" name="signup">Sign Up</a>

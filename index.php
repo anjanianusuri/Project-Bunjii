@@ -16,8 +16,8 @@
         <?php  if(isset($_SESSION['name'])){
             $name = $_SESSION['name'];
             echo "<h2 class='text-primary'>Welcome $name</h2>"; }?>
-        <p><italic>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend a mauris ut tempus. Etiam lacinia lobortis tristique. Quisque dapibus sapien quis nunc consequat convallis.
-        </italic></p>
+        <p><italic>Bunjii is the leading solution for managing sports facilities and good choice for the customers to book a venue online. We're proud of our rock-solid data-security standards, industry-leading uptime and performance and our über-helpful support </italic></p>
+          <p><italic>So throw away that notepad and Signup to enjoy a smarter way to manage your bookings!</italic></p>
       </div>
       <div class="container col-md-4">
         <form class="mainform">

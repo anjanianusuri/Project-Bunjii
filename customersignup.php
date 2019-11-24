@@ -7,7 +7,7 @@
                 <a class="nav-link" href="venuesignup.php">Facility</a>
             </li>
         </ul>
-        <form action="include/customersignup.inc.php" method="POST">
+        <form action="include/customersignup.inc.php" method="POST" enctype="multipart/form-data">
             <?php
                 if(isset($_GET['error'])){
                     if($_GET['error'] == 'emptyfeilds'){
@@ -24,6 +24,8 @@
                     }
                 }
             ?>
+            <label for="name">Profile Picture</label>
+            <input class = "form-control" type="file" id="name" name="file" placeholder="Enter your first name" />
             <label for="name">Name</label>
             <input class = "form-control" type="text" id="name" name="name" value="<?php echo $name;?>" placeholder="Enter your first name" />
             <small id="nMessage" class="form-text text-muted"></small>
