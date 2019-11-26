@@ -31,9 +31,9 @@ require_once ("database.php");
         <div class="container">
         <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" href="venueprofile.php">Profile</a></li>
+                        <a class="nav-link" href="venueprofile.php">Profile</a></li>
                     <li class="nav-item">
-                        <a class="nav-link" href="venueprofilecourts.php">Courts</a>
+                        <a class="nav-link active" href="venueprofilecourts.php">Courts</a>
                     <li class="nav-item">
                             <a class="nav-link" href="venueprofilecoaches.php">Coaches</a>
                     <li class="nav-item">
@@ -41,25 +41,29 @@ require_once ("database.php");
                     </li>
         </ul>
     </div>
-  </div>
-  <div class="container">
-    <br>
-    <h2><?php echo $venue['venue_name'];?></h2>
+    <div class="container">
+      <br>
+    <h2>Courts</h2>
     <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-
+    <?php while($courts = mysqli_fetch_assoc($courtsResult)) { ?>
     <table>
         <tr>
-            <td><strong>Description</strong></td>
-            <td class="profiletable"><?php echo $venue['venue_desc']?></td>
+            <td class="profiletable"><b><?php echo $courts['court_name']; ?></b></td>
         </tr>
         <tr>
-            <td><strong>Phone</strong></td>
-            <td class="profiletable"><?php echo $venue['venue_phone'] ?></td>
-        </tr>
-    </table>
-    <br>
-    <a href="editvenue.php" class="text-primary">Edit Profile >></a>
+            <?php
 
+            // Declaring court id to a variable to use it to find timings
+
+            $court_id = $courts['court_id'];
+            $timingsSQL = "select * from timings where court_id='$court_id'";
+            $timingsResult = mysqli_query($conn, $timingsSQL);
+
+            while ($timings = mysqli_fetch_assoc($timingsResult)) { ?>
+              <td class="profiletable"> <?php  echo $timings['time_range']; }?> </td>
+            </tr>
+    </table>
+    <?php } ?>
 </div>
 
 <?php include ('footer.php'); ?>

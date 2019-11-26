@@ -26,7 +26,7 @@ require_once ("database.php");
 ?>
 <div class="container">
     <h1>PROFILE</h1>
-   
+
     <a class="btn btn-primary my-2 my-sm-0 menubuttons" href="editvenue.php" name="prof" style="margin-right: 1013px;">Edit Profile</a>
     <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
     <img src="include/uploads/<?php echo $venue['venue_image'];?>" height="100px" width="100px" style="margin-left: 1183px;
@@ -36,8 +36,8 @@ margin-top: -245px;">
     <label for="name">Profile Picture</label>
     <input type="hidden" name="venue_id" value="<?php echo $venue['venue_id'];?>">
             <input class = "form-control" type="file" id="name" name="file">
-            <input type="submit" name="submit" value="Upload">
+            <input class= "btn btn-primary" type="submit" name="submit" value="Upload">
     </form>
- 
-   
+
+
 <?php include('footer.php'); ?>

@@ -24,6 +24,7 @@ require_once ("database.php");
         $coachesSQL = "select * from coaches where venue_id='$venue_id'";
         $coachesResult = mysqli_query($conn, $coachesSQL);
 
+
     }
 ?>
 <div class="container">
@@ -31,34 +32,32 @@ require_once ("database.php");
         <div class="container">
         <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" href="venueprofile.php">Profile</a></li>
+                        <a class="nav-link" href="venueprofile.php">Profile</a></li>
                     <li class="nav-item">
                         <a class="nav-link" href="venueprofilecourts.php">Courts</a>
                     <li class="nav-item">
-                            <a class="nav-link" href="venueprofilecoaches.php">Coaches</a>
+                            <a class="nav-link active" href="venueprofilecoaches.php">Coaches</a>
                     <li class="nav-item">
                             <a class="nav-link" href="venueprofilebookings.php">Bookings</a>
                     </li>
         </ul>
     </div>
-  </div>
-  <div class="container">
-    <br>
-    <h2><?php echo $venue['venue_name'];?></h2>
+    <div class="container">
+      <br>
+    <h2>Coaches</h2>
     <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-
-    <table>
-        <tr>
-            <td><strong>Description</strong></td>
-            <td class="profiletable"><?php echo $venue['venue_desc']?></td>
-        </tr>
-        <tr>
-            <td><strong>Phone</strong></td>
-            <td class="profiletable"><?php echo $venue['venue_phone'] ?></td>
-        </tr>
-    </table>
-    <br>
-    <a href="editvenue.php" class="text-primary">Edit Profile >></a>
+    <?php while($coaches = mysqli_fetch_assoc($coachesResult)) { ?>
+        <table>
+            <tr>
+                <td><strong>Coach <?php echo $coaches['coach_id']; ?></strong></td>
+                <td class="profiletable"><?php echo $coaches['coach_name']; ?></td>
+            </tr>
+            <tr>
+                <td><strong>Description</strong></td>
+                <td class="profiletable"><?php echo $coaches['coach_desc']; ?></td>
+            </tr>
+        </table>
+    <?php } ?>
 
 </div>
 
