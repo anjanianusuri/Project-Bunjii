@@ -13,9 +13,6 @@
         else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             redirect_to('../login.php?error=invalidemail&name=' . $name);
         }
-        else if($type = 'venue'){
-           redirect_to('../login.php?error=usererror');
-        }
         else {
 
             global $conn;
@@ -26,6 +23,12 @@
                 redirect_to('../login.php?error=wrongpassword&email='.$email);
             }
             $row = mysqli_fetch_assoc($result);
+
+            $type = $row['type'];
+
+            if($type == 'venue'){
+              redirect_to('../login.php?error=usererror');
+            }
 
             $passwordCheck = password_verify($password, $row['password']);
 
