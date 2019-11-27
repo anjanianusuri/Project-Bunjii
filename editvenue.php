@@ -45,7 +45,7 @@ if(isset($_SESSION['user'])) {
             <input id="name" name="venue_phone" class="form-control" type="text" value="<?php echo $venue['venue_phone'];?>">
             <label for="phone">Venue Type</label>
             <input id="name" name="venue_type" class="form-control" type="text" value="<?php echo $venue['venue_type'];?>">
-            <input class="btn btn-primary" type="Submit" name="submit" value="Update">
+            <input class="btn btn-primary" type="submit" name="submit" value="Update">
 
         </form>
     </div>

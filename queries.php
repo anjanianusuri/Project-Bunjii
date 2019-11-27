@@ -4,6 +4,7 @@ DROP TABLE courts;
 DROP TABLE customer;
 DROP TABLE timings;
 DROP TABLE venue;
+DROP TABLE bookings;
 
 CREATE TABLE users(
 signupid int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -50,6 +51,17 @@ venue_id int(11) REFERENCES venue(venue_id),
 coach_id int(11) PRIMARY KEY,
 coach_name TINYTEXT,
 coach_desc LONGTEXT
+);
+
+CREATE TABLE bookings(
+booking_id int(11) PRIMARY KEY,
+customer_id int(11) REFERENCES customer(customer_id),
+venue_id int(11) REFERENCES venue(venue_id),
+court_id int(11) REFERENCES courts(court_id),
+court_name TINYTEXT REFERENCES courts(court_name),
+customer_name TINYTEXT REFERENCES customer(customer_name),
+time TINYTEXT,
+date DATE
 );
 
 INSERT INTO `venue`(`venue_id`, `signupid`, `venue_name`, `venue_desc`, `venue_phone`, `venue_type`) VALUES (1,1,'UQ Rugby','The UQ Rugby Football Club (UQRFC) is widely regarded as one of Australia's premier rugby union clubs. Since its foundation in 1911, UQRFC has produced 60 Wallabies players (eight as captain) and over 200 Queensland representatives. This decorated club - Brisbane's most successful - provides playing pathways for male and female of all standards. If you're a lover of 'The Greatest Game of All', check out the UQ Rugby League Club! Known as the Hounds, the club fields a successful men's team in the University Rugby League Queensland competition. There's also the option to join the UQ Touch Football Club, with the club competing in an array of junior and senior competitions across Brisbane!',0435661027, 'football');
