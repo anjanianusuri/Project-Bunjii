@@ -4,6 +4,8 @@
 
     if(isset($_POST['submit'])) {
 
+        global $conn;
+
         $venueid = mysqli_real_escape_string($conn, $_POST['venueid']);
         $venuename = mysqli_real_escape_string($conn, $_POST['venuename']);
         $courtid = mysqli_real_escape_string($conn, $_POST['courtid']);
@@ -13,11 +15,12 @@
         $date = mysqli_real_escape_string($conn, $_POST['date']);
         $time = mysqli_real_escape_string($conn, $_POST['time']);
 
-            global $conn;
+        $sql = "insert into booking (customer_id, venue_id, court_id, court_name, customer_name)
+            values ('$customerid','$venueid','$courtid','$courtname','$customername')";
+        $result = mysqli_query($conn, $sql);
 
-            $sql = "insert into booking (customer_id, venue_id, court_id, court_name, customer_name, time, date)
-            values ('$customerid','$venueid','$courtid','$courtname','$customername','$time','$date')";
-            $result = mysqli_query($conn, $sql);
+        mysqli_close($conn);
 
-            mysqli_close($conn);
-          }
+        redirect_to('../bookingsuccess.php?');
+
+        }
