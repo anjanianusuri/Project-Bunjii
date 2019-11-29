@@ -15,8 +15,11 @@
         $date = mysqli_real_escape_string($conn, $_POST['date']);
         $time = mysqli_real_escape_string($conn, $_POST['time']);
 
-        $sql = "insert into booking (customer_id, venue_id, court_id, court_name, customer_name)
-            values ('$customerid','$venueid','$courtid','$courtname','$customername')";
+        echo $date;
+        echo $time;
+
+        $sql = "insert into booking (customer_id, venue_id, court_id, court_name, customer_name, time, date)
+            values ('$customerid','$venueid','$courtid','$courtname','$customername','$time','$date')";
         $result = mysqli_query($conn, $sql);
 
         mysqli_close($conn);

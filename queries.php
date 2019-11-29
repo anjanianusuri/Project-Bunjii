@@ -48,13 +48,13 @@ time_range TINYTEXT
 
 CREATE TABLE coaches(
 venue_id int(11) REFERENCES venue(venue_id),
-coach_id int(11) PRIMARY KEY,
+coach_id int(11) AUTO_INCREMENT PRIMARY KEY,
 coach_name TINYTEXT,
 coach_desc LONGTEXT
 );
 
 CREATE TABLE bookings(
-booking_id int(11) PRIMARY KEY,
+booking_id int(11) AUTO_INCREMENT PRIMARY KEY,
 customer_id int(11) REFERENCES customer(customer_id),
 venue_id int(11) REFERENCES venue(venue_id),
 court_id int(11) REFERENCES courts(court_id),

@@ -47,17 +47,16 @@
     <div class="container">
     <h1>BOOKING <?php echo $venue['venue_name'];?></h1>
     <form action="include/booking.inc.php" method="POST">
-    <input type="hidden" name="venue_id" value="<?php echo $venue_id;?>">
         <label for="venueid">Venue ID</label>
-        <input id="venueid" class="form-control" name="venueid" type="text" value="<?php echo $venue['venue_id'];?>">
+        <input id="venueid" class="form-control" name="venueid" type="hidden" value="<?php echo $venue['venue_id'];?>">
         <label for="venuename">Venue Name</label>
         <input id="venuename" class="form-control" name="venuename" type="text" value="<?php echo $venue['venue_name'];?>">
         <label for="courtid">Court ID</label>
-        <input id="courtid" class="form-control" name="courtid" type="text" value="<?php echo $court['court_id'];?>">
+        <input id="courtid" class="form-control" name="courtid" type="hidden" value="<?php echo $court['court_id'];?>">
         <label for="courtname">Court Name</label>
         <input id="courtname" class="form-control" name="courtname" type="text" value="<?php echo $court['court_name'];?>">
         <label for="customerid">Customer ID</label>
-        <input id="customerid" class="form-control" name="customerid" type="text" value="<?php echo $customer['customer_id'];?>">
+        <input id="customerid" class="form-control" name="customerid" type="hidden" value="<?php echo $customer['customer_id'];?>">
         <label for="customername">Customer Name</label>
         <input id="customername" class="form-control" name="customername" type="text" value="<?php echo $customer['customer_name'];?>">
         <label for="date">Date</label>

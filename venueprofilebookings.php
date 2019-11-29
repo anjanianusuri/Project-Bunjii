@@ -55,10 +55,16 @@ require_once ("database.php");
                  <hr>
               </tr>
               <tr>
-                  <td><strong>Court Name</strong> <?php echo $bookings['court_name']; ?></td>
+                  <td><strong>Court Name: </strong> <?php echo $bookings['court_name']; ?></td>
               </tr>
               <tr>
-                  <td><strong>Player Name</strong> <?php echo $bookings['player_name']; ?></td>
+                  <td><strong>Player Name: </strong> <?php echo $bookings['player_name']; ?></td>
+              </tr>
+              <tr>
+                  <td><strong>Date: </strong> <?php echo $bookings['date']; ?> </td>
+              </tr>
+              <tr>
+                  <td><strong>Time: </strong> <?php echo $bookings['time']; ?> </td>
               </tr>
           </table>
       <?php } ?>

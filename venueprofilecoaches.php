@@ -58,6 +58,8 @@ require_once ("database.php");
             </tr>
         </table>
     <?php } ?>
+    <br>
+    <a href="addcoach.php" class="text-primary">Add Coach >></a>
 
 </div>
 

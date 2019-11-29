@@ -52,7 +52,7 @@
 
                 $signupid = $signuprow['signupid'];
 
-               
+
                 $profilesql = "insert into customer(signupid, customer_name, customer_email,customer_profpic) values('$signupid', '$name', '$email','$file_name')";
                 $profileresult = mysqli_query($conn, $profilesql);
 
