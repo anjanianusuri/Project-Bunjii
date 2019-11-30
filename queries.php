@@ -4,7 +4,7 @@ DROP TABLE courts;
 DROP TABLE customer;
 DROP TABLE timings;
 DROP TABLE venue;
-DROP TABLE bookings;
+DROP TABLE booking;
 
 CREATE TABLE users(
 signupid int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -36,7 +36,7 @@ customer_desc LONGTEXT
 
 CREATE TABLE courts(
 venue_id int(11) REFERENCES venue(venue_id),
-court_id int(11) PRIMARY KEY,
+court_id int(11) AUTO_INCREMENT PRIMARY KEY,
 court_name TINYTEXT
 );
 
@@ -53,7 +53,7 @@ coach_name TINYTEXT,
 coach_desc LONGTEXT
 );
 
-CREATE TABLE bookings(
+CREATE TABLE booking(
 booking_id int(11) AUTO_INCREMENT PRIMARY KEY,
 customer_id int(11) REFERENCES customer(customer_id),
 venue_id int(11) REFERENCES venue(venue_id),
@@ -63,6 +63,14 @@ customer_name TINYTEXT REFERENCES customer(customer_name),
 time TINYTEXT,
 date DATE
 );
+
+CREATE TABLE gallery(
+image_id int(11) AUTO_INCREMENT PRIMARY KEY,
+venue_id int(11) REFERENCES venue(venue_id),
+venue_image varchar(50)
+);
+
+INSERT INTO `customer`(`customer_id`, `signupid`, `customer_name`, `customer_age`, `customer_gender`, `customer_phone`, `customer_address`, `customer_email`, `customer_interests`, `customer_desc`) VALUES (2,2,'Anjani Anusuri',26,'Female',0435661027,'11/85, Muriel Avenue, Moorooka - 4105','customer@gmail.com','Playing Tennis','I am a forever student, eager to both build on my academic foundations in technology and stay in tune with the latest HTML, CSS, Javascript strategies through continued coursework and professional development.');
 
 INSERT INTO `venue`(`venue_id`, `signupid`, `venue_name`, `venue_desc`, `venue_phone`, `venue_type`) VALUES (1,1,'UQ Rugby','The UQ Rugby Football Club (UQRFC) is widely regarded as one of Australia's premier rugby union clubs. Since its foundation in 1911, UQRFC has produced 60 Wallabies players (eight as captain) and over 200 Queensland representatives. This decorated club - Brisbane's most successful - provides playing pathways for male and female of all standards. If you're a lover of 'The Greatest Game of All', check out the UQ Rugby League Club! Known as the Hounds, the club fields a successful men's team in the University Rugby League Queensland competition. There's also the option to join the UQ Touch Football Club, with the club competing in an array of junior and senior competitions across Brisbane!',0435661027, 'football');
 INSERT INTO `venue`(`venue_id`, `signupid`, `venue_name`, `venue_desc`, `venue_phone`, `venue_type`) VALUES (2,2,'Scorpion Tennis','Scorpion Tennis of Queensland is Australia's leading builder and supplier of tennis courts as well as a full range of leisure and sports surfaces including netball and basketball courts, aged care sporting facilities, bowling greens, mini courts, cricket pitches, pickle ball courts and an extensive range of surfaces for driveways, airstrips, wharves and industrial spaces. Whatever your sporting or commercial surfaces' needs, we can offer the best advice on which surface to choose and the most efficient method of installation. As tennis players and professionals, we offer superior advice in terms of where to position your court in relation to the rest of your property, ensuring a seamless playing experience and a good looking solution for your home and lifestyle. You can try our tennis court surfaces at our Carseldine headquarters where we also offer a full range of coaching services.',415796265, 'tennis');
@@ -99,6 +107,5 @@ INSERT INTO `timings`(`court_id`, `timing_id`, `time_range`) VALUES (2,17,'4.00 
 INSERT INTO `timings`(`court_id`, `timing_id`, `time_range`) VALUES (2,18,'5.00 - 6.00');
 INSERT INTO `timings`(`court_id`, `timing_id`, `time_range`) VALUES (2,19,'6.00 - 7.00');
 INSERT INTO `timings`(`court_id`, `timing_id`, `time_range`) VALUES (2,20,'7.00 - 8.00');
-
 
 INSERT INTO `coaches`(`venue_id`, `coach_id`, `coach_name`, `coach_desc`) VALUES (1, 1, 'Frank Calabaria', 'Director of our Performance Program, an RSTA Business Director. Frank is a career coach and has been operating a professional tennis coaching business since 1998. He is a qualified Club Professional coach will Tennis Australia as well as an Mentor for the ANZ Tennis Hot Shots program at Tennis Australia. and also Coach Developer for Tennis Australia Franks passion and gifts lay in the love he has for the game of tennis and his desire to show share this with students of the game, both the young and young at heart. His passion for the game and the desire to make the tennis experience fun has seen Frank has twice been rewarded with State Coach of the Year honours and well as a nominee for Excellence in Hot Shots Coach of the Year at Tennis Australia's Newcombe Medal annual awards in 2012 and also again in 2017 for coaching excellence in the club coach category.');

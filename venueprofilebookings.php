@@ -24,7 +24,7 @@ require_once ("database.php");
         $coachesSQL = "select * from coaches where venue_id='$venue_id'";
         $coachesResult = mysqli_query($conn, $coachesSQL);
 
-        $bookingsSQL = "select * from bookings where venue_id='$venue_id'";
+        $bookingsSQL = "select * from booking where venue_id='$venue_id'";
         $bookingsResult = mysqli_query($conn, $bookingsSQL);
 
     }
@@ -37,6 +37,8 @@ require_once ("database.php");
                         <a class="nav-link" href="venueprofile.php">Profile</a></li>
                     <li class="nav-item">
                         <a class="nav-link" href="venueprofilecourts.php">Courts</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="venueprofilegallery.php">Gallery</a>
                     <li class="nav-item">
                             <a class="nav-link" href="venueprofilecoaches.php">Coaches</a>
                     <li class="nav-item">
@@ -58,7 +60,7 @@ require_once ("database.php");
                   <td><strong>Court Name: </strong> <?php echo $bookings['court_name']; ?></td>
               </tr>
               <tr>
-                  <td><strong>Player Name: </strong> <?php echo $bookings['player_name']; ?></td>
+                  <td><strong>Player Name: </strong> <?php echo $bookings['customer_name']; ?></td>
               </tr>
               <tr>
                   <td><strong>Date: </strong> <?php echo $bookings['date']; ?> </td>

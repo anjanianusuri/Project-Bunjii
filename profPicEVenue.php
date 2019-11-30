@@ -5,10 +5,12 @@
     global $conn;
    // $id = $_SESSION['id'];
 
-   
+
 
     if(isset($_POST['submit'])) {
+
         global $conn;
+
         $file_name=$_FILES['file']['name'];
         $file_type=$_FILES['file']['type'];
         $file_size=$_FILES['file']['size'];

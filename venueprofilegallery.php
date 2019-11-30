@@ -18,11 +18,8 @@ require_once ("database.php");
 
         $venue_id = $venue['venue_id'];
 
-        $courtsSQL = "select * from courts where venue_id='$venue_id'";
-        $courtsResult = mysqli_query($conn, $courtsSQL);
-
-        $coachesSQL = "select * from coaches where venue_id='$venue_id'";
-        $coachesResult = mysqli_query($conn, $coachesSQL);
+        $gallerySQL = "select * from gallery where venue_id='$venue_id'";
+        $galleryResult = mysqli_query($conn, $gallerySQL);
 
     }
 ?>
@@ -31,11 +28,11 @@ require_once ("database.php");
         <div class="container">
         <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" href="venueprofile.php">Profile</a></li>
+                        <a class="nav-link" href="venueprofile.php">Profile</a></li>
                     <li class="nav-item">
                         <a class="nav-link" href="venueprofilecourts.php">Courts</a>
                     <li class="nav-item">
-                        <a class="nav-link" href="venueprofilegallery.php">Gallery</a>
+                            <a class="nav-link active" href="venueprofilegallery.php">Gallery</a>
                     <li class="nav-item">
                             <a class="nav-link" href="venueprofilecoaches.php">Coaches</a>
                     <li class="nav-item">
@@ -43,25 +40,20 @@ require_once ("database.php");
                     </li>
         </ul>
     </div>
-  </div>
-  <div class="container">
-    <br>
-    <h2><?php echo $venue['venue_name'];?></h2>
+    <div class="container">
+      <br>
+    <h2>Gallery</h2>
     <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-
+    <?php while($gallery = mysqli_fetch_assoc($galleryResult)) { ?>
     <table>
         <tr>
-            <td><strong>Description</strong></td>
-            <td class="profiletable"><?php echo $venue['venue_desc']?></td>
+            <td class="profiletable"><b><?php echo $gallery['venue_image']; ?></b></td>
         </tr>
         <tr>
-            <td><strong>Phone</strong></td>
-            <td class="profiletable"><?php echo $venue['venue_phone'] ?></td>
-        </tr>
     </table>
+    <?php } ?>
     <br>
-    <a href="editvenue.php" class="text-primary">Edit Profile >></a>
-
+    <a href="addphotos.php" class="text-primary">Add Photos >></a>
 </div>
 
 <?php include ('footer.php'); ?>
