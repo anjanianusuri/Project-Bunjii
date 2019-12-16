@@ -20,7 +20,6 @@ if(isset($_SESSION['user'])) {
     <h1>EDIT PROFILE</h1>
     <hr>
     <div class="col-md-6">
-
         <form action="include/editcustomer.inc.php" method="POST">
             <input id="customer_id" class="form-control" name="customer_id" type="hidden" value="<?php echo $customer['customer_id'];?>">
             <label for="customer_name">Name</label>
@@ -39,7 +38,6 @@ if(isset($_SESSION['user'])) {
             <textarea id="customer_desc" name="customer_desc" class="form-control" type="text"><?php echo $customer['customer_desc'];?>"</textarea>
             <br>
             <input class="btn btn-primary" type="submit" name="submit" value="Update">
-
         </form>
     </div>
 </div>

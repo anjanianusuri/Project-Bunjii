@@ -34,13 +34,7 @@ require_once ("database.php");
                         <li class="nav-item">
                             <a class="nav-link active" href="venueprofile.php">Profile</a></li>
                         <li class="nav-item">
-                            <a class="nav-link" href="venueprofilecourts.php">Courts</a>
-                        <li class="nav-item">
-                            <a class="nav-link" href="venueprofilegallery.php">Gallery</a>
-                        <li class="nav-item">
-                                <a class="nav-link" href="venueprofilecoaches.php">Coaches</a>
-                        <li class="nav-item">
-                                <a class="nav-link" href="venueprofilebookings.php">Bookings</a>
+                                <a class="nav-link" href="customerprofilebookings.php">Bookings</a>
                         </li>
             </ul>
         </div>

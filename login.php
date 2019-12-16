@@ -31,7 +31,7 @@
                 echo "<p class='text-danger'>Please enter the correct password</p>";
             }
             else if($_GET['error'] === 'usererror'){
-                echo "<p class='text-danger'>Sign in as a venue</p>";
+                echo "<p class='text-danger'>Invalid User</p>";
             }
         }?>
         <form action="include/login.inc.php" method="POST">
