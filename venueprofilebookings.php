@@ -67,7 +67,7 @@ require_once ("database.php");
             </ul>
             <div class="card-body">
               <a href="editvenuebookings.php?id=<?php echo $bookings['booking_id']; ?>" class="card-link">Edit Booking</a>
-              <a href="editvenuebookings.php?id=<?php echo $bookings['booking_id']; ?>" class="card-link">Cancel Booking</a>
+              <a href="cancelbooking.php?id=<?php echo $bookings['booking_id']; ?>" class="card-link">Cancel Booking</a>
             </div>
           </div>
       <?php } ?>
