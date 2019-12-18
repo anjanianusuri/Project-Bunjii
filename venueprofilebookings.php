@@ -24,7 +24,7 @@ require_once ("database.php");
         $coachesSQL = "select * from coaches where venue_id='$venue_id'";
         $coachesResult = mysqli_query($conn, $coachesSQL);
 
-        $bookingsSQL = "select * from booking where venue_id='$venue_id'";
+        $bookingsSQL = "select * from booking where venue_id='$venue_id' and date > curdate()";
         $bookingsResult = mysqli_query($conn, $bookingsSQL);
 
     }
@@ -42,7 +42,9 @@ require_once ("database.php");
                     <li class="nav-item">
                             <a class="nav-link" href="venueprofilecoaches.php">Coaches</a>
                     <li class="nav-item">
-                            <a class="nav-link active" href="venueprofilebookings.php">Bookings</a>
+                            <a class="nav-link active" href="venueprofilebookings.php">Current Bookings</a>
+                    <li class="nav-item">
+                            <a class="nav-link" href="venueprofilebookingshistory.php">Booking History</a>
                     </li>
         </ul>
     </div>
@@ -56,6 +58,7 @@ require_once ("database.php");
                  <td><strong> BOOKING <?php echo $bookings['booking_id']; ?> </strong></td>
                  <hr>
               </tr>
+              <a href="editvenuebookings.php?id=<?php echo $bookings['booking_id']; ?>" class="text-primary">Edit Booking >></a>
               <tr>
                   <td><strong>Court Name: </strong> <?php echo $bookings['court_name']; ?></td>
               </tr>

@@ -36,7 +36,9 @@ require_once ("database.php");
                     <li class="nav-item">
                             <a class="nav-link" href="venueprofilecoaches.php">Coaches</a>
                     <li class="nav-item">
-                            <a class="nav-link" href="venueprofilebookings.php">Bookings</a>
+                            <a class="nav-link" href="venueprofilebookings.php">Current Bookings</a>
+                    <li class="nav-item">
+                            <a class="nav-link" href="venueprofilebookingshistory.php">Booking History</a>
                     </li>
         </ul>
     </div>

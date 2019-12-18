@@ -24,6 +24,8 @@ require_once ("database.php");
         $coachesSQL = "select * from coaches where venue_id='$venue_id'";
         $coachesResult = mysqli_query($conn, $coachesSQL);
 
+        $bookingsSQL = "select * from booking where venue_id='$venue_id' and date < curdate()";
+        $bookingsResult = mysqli_query($conn, $bookingsSQL);
 
     }
 ?>
@@ -38,33 +40,38 @@ require_once ("database.php");
                     <li class="nav-item">
                         <a class="nav-link" href="venueprofilegallery.php">Gallery</a>
                     <li class="nav-item">
-                            <a class="nav-link active" href="venueprofilecoaches.php">Coaches</a>
+                            <a class="nav-link" href="venueprofilecoaches.php">Coaches</a>
                     <li class="nav-item">
                             <a class="nav-link" href="venueprofilebookings.php">Current Bookings</a>
                     <li class="nav-item">
-                            <a class="nav-link" href="venueprofilebookingshistory.php">Booking History</a>
+                            <a class="nav-link active" href="venueprofilebookingshistory.php">Booking History</a>
                     </li>
         </ul>
     </div>
     <div class="container">
       <br>
-    <h2>Coaches</h2>
-    <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-    <?php while($coaches = mysqli_fetch_assoc($coachesResult)) { ?>
-        <table>
-            <tr>
-                <td><strong>Coach <?php echo $coaches['coach_id']; ?></strong></td>
-                <td class="profiletable"><?php echo $coaches['coach_name']; ?></td>
-            </tr>
-            <tr>
-                <td><strong>Description</strong></td>
-                <td class="profiletable"><?php echo $coaches['coach_desc']; ?></td>
-            </tr>
-        </table>
-    <?php } ?>
-    <br>
-    <a href="addcoach.php" class="text-primary">Add Coach >></a>
-
+      <h2>Bookings</h2>
+      <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+      <?php while($bookings = mysqli_fetch_assoc($bookingsResult)) { ?>
+          <table>
+              <tr>
+                 <td><strong> BOOKING <?php echo $bookings['booking_id']; ?> </strong></td>
+                 <hr>
+              </tr>
+              <tr>
+                  <td><strong>Court Name: </strong> <?php echo $bookings['court_name']; ?></td>
+              </tr>
+              <tr>
+                  <td><strong>Player Name: </strong> <?php echo $bookings['customer_name']; ?></td>
+              </tr>
+              <tr>
+                  <td><strong>Date: </strong> <?php echo $bookings['date']; ?> </td>
+              </tr>
+              <tr>
+                  <td><strong>Time: </strong> <?php echo $bookings['time']; ?> </td>
+              </tr>
+          </table>
+      <?php } ?>
 </div>
 
 <?php include ('footer.php'); ?>
