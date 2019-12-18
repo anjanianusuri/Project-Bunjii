@@ -20,10 +20,11 @@
           <p><italic>So throw away that notepad and signup to enjoy a smarter way to manage your bookings!</italic></p>
       </div>
       <div class="container col-md-4">
-        <form class="mainform">
-          <input class="form-control" type="text" placeholder="Sport"/>
-          <input class="form-control" type="text" placeholder="Location" />
-          <input class="btn btn-primary" type="Submit" style="position: absolute; left: 40%"/>
+        <h1>SEARCH</h1>
+        <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <form class="mainform" action="search.php">
+          <input class = "form-control" type="text" id="sport" name="sport" placeholder="Search" />
+          <input class="btn btn-primary" type="submit" name="submit" id="submit" style="position: absolute; left: 40%"/>
         </form>
       </div>
     </div>

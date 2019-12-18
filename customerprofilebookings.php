@@ -24,32 +24,38 @@ require_once ("database.php");
     }
 ?>
 <div class="container">
+  <h1>BOOKINGS</h1>
+  <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
     <div class="row">
         <div class="container">
         <ul class="nav nav-tabs">
                     <li class="nav-item">
                       <li class="nav-item">
-                          <a class="nav-link active" href="venueprofile.php">Profile</a></li>
+                          <a class="nav-link" href="customerprofile.php">Profile</a></li>
                       <li class="nav-item">
-                              <a class="nav-link" href="customerprofilebookings.php">Bookings</a>
+                              <a class="nav-link active" href="customerprofilebookings.php">Bookings</a>
                     </li>
         </ul>
     </div>
     <div class="container">
       <br>
-      <h2>Bookings</h2>
-      <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
       <?php while($bookings = mysqli_fetch_assoc($bookingsResult)) { ?>
           <table>
               <tr>
                  <td><strong> BOOKING <?php echo $bookings['booking_id']; ?> </strong></td>
                  <hr>
               </tr>
+              <?php
+                $venue_id = $bookings['venue_id'];
+                $venueSQL = "select * from venue where venue_id='$venue_id'";
+                $venueResult = mysqli_query($conn, $venueSQL);
+                $venue = mysqli_fetch_assoc($venueResult);
+              ?>
               <tr>
-                  <td><strong>Court Name: </strong> <?php echo $bookings['court_name']; ?></td>
+                  <td><strong>Venue Name: </strong> <?php echo $venue['venue_name']; ?></td>
               </tr>
               <tr>
-                  <td><strong>Player Name: </strong> <?php echo $bookings['customer_name']; ?></td>
+                  <td><strong>Court Name: </strong> <?php echo $bookings['court_name']; ?></td>
               </tr>
               <tr>
                   <td><strong>Date: </strong> <?php echo $bookings['date']; ?> </td>

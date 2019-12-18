@@ -49,7 +49,7 @@
     <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
     <h5 class="text-success">Your booking has been successful</h5>
     <br>
-    <input class=" btn btn-primary" type="submit" name="submit" id="submit" value="View"/>
+    <a href="customerprofilebookings.php" class="text-primary">View Bookings >></a>
     </form>
    </div>
 
