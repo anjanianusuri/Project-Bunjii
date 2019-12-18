@@ -9,6 +9,7 @@
 
     $displayVenueSQL = "select * from venue";
     $venueResult = mysqli_query($conn, $displayVenueSQL);
+
 ?>
 <main>
   <div class="container">
@@ -17,14 +18,24 @@
           <h1>SPORTS FACILITIES</h1>
           <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
           <div class="row">
-          <?php while ($venue = mysqli_fetch_assoc($venueResult)) { ?>
+          <?php while ($venue = mysqli_fetch_assoc($venueResult)) {
+
+              $venueid = $venue['venue_id'];
+
+              $gallerysql = "select * from gallery where venue_id = '$venueid' and image_id = 1";
+              $galleryResult = mysqli_query($conn, $gallerysql);
+
+            ?>
 
           <div class="card" style="width:21rem; margin: 20px;">
             <img class="card-img-top" src="include/uploads/<?php
-            if ($venue['venue_image'] == ""){
+
+            $gallery = mysqli_fetch_assoc($galleryResult);
+
+            if ($gallery['venue_image'] == ""){
                echo "default.jpg";}
               else {
-                echo $venue['venue_image'];
+                echo $gallery['venue_image'];
               }?>" />
             <div class="card-body">
               <h2><?php echo $venue['venue_name']; ?></h2>

@@ -25,10 +25,11 @@ if(isset($_SESSION['user'])) {
     <div class="col-md-6">
 
         <form action="include/addphotos.inc.php" method="POST" enctype="multipart/form-data">
-            <input type="hidden" id="venue_id" name="venue_id" value="<?php echo $venue_id;?>">
-            <input type="file" name="photo" id="photo" accept="image/*">
+            <input type="hidden" id="venueid" name="venueid" value="<?php echo $venue_id;?>">
+            <input type="hidden" name="size" value="1000000">
+            <input type="file" name="image">
             <br>
-            <input class="btn btn-primary" type="submit" name="submit" value="Add">
+            <input class="btn btn-primary" type="submit" name="submit" value="Upload">
         </form>
     </div>
 </div>

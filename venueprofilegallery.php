@@ -42,20 +42,27 @@ require_once ("database.php");
                     </li>
         </ul>
     </div>
-    <div class="container">
-      <br>
-    <h2>Gallery</h2>
-    <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-    <?php while($gallery = mysqli_fetch_assoc($galleryResult)) { ?>
-    <table>
-        <tr>
-            <td class="profiletable"><b><?php echo $gallery['venue_image']; ?></b></td>
-        </tr>
-        <tr>
-    </table>
-    <?php } ?>
-    <br>
-    <a href="addphotos.php" class="text-primary">Add Photos >></a>
+  </div>
 </div>
+    <div class="row">
+      <div class="container">
+        <br>
+        <h2>Gallery</h2>
+        <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <div class="row">
+        <?php while($gallery = mysqli_fetch_assoc($galleryResult)) { ?>
+          <div class="card" style="width: 18rem; margin: 20px; ">
+            <img src="include/uploads/<?php echo $gallery['venue_image'];?>" class="card-img-top" style="height: 200px; width: auto;">
+          </div>
+        <?php } ?>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+      <div class="container">
+          <hr>
+          <a href="addphotos.php" class="text-primary">Add Photos >></a>
+      </div>
+    </div>
 
 <?php include ('footer.php'); ?>

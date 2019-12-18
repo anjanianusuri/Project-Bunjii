@@ -7,13 +7,21 @@
 
         global $conn;
 
-        $venueid = mysqli_real_escape_string($conn, $_POST['venue_id']);
-        $photo = mysqli_real_escape_string($conn, $_POST['photo']);
+        $target ="uploads/".basename($_FILES['image']['name']);
 
-        $sql = "insert into gallery(venue_id, venue_image) values('$venueid', '$photo');";
-        $result = mysqli_query($conn, $sql);
+        $image = $_FILES['image']['name'];
+        $venueid = $_POST['venueid'];
 
-        mysqli_close($conn);
+        $sql = "INSERT INTO GALLERY (venue_id, venue_image) VALUES ('$venueid','$image')";
+        $sqlResult = mysqli_query($conn, $sql);
+
+        if(move_uploaded_file($_FILES['image']['tmp_name'], $target)){
+          $msg = "Image Uploaded successfully";
+        }
+        else {
+          $msg = "There was a problem uploading the image";
+        }
+
         redirect_to('../venueprofilegallery.php?add=success');
     }
     ?>
