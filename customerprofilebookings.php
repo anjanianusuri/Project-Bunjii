@@ -41,36 +41,47 @@ require_once ("database.php");
     </div>
     <div class="container">
       <br>
-      <?php while($bookings = mysqli_fetch_assoc($bookingsResult)) { ?>
-          <table>
-              <tr>
-                 <td><strong> BOOKING <?php echo $bookings['booking_id']; ?> </strong></td>
-              </tr>
-              <?php
-                $venue_id = $bookings['venue_id'];
-                $venueSQL = "select * from venue where venue_id='$venue_id'";
-                $venueResult = mysqli_query($conn, $venueSQL);
-                $venue = mysqli_fetch_assoc($venueResult);
-              ?>
-              <a href="editcustomerbookings.php?id=<?php echo $bookings['booking_id']; ?>" class="text-primary">Edit Booking >></a>
-              <tr>
-                  <td><strong>Venue Name: </strong> <?php echo $venue['venue_name']; ?></td>
-              </tr>
-              <tr>
-                  <td><strong>Court Name: </strong> <?php echo $bookings['court_name']; ?></td>
-              </tr>
-              <tr>
-                  <td><strong>Date: </strong> <?php echo $bookings['date']; ?> </td>
-              </tr>
-              <tr>
-                  <td><strong>Time: </strong> <?php echo $bookings['time']; ?> </td>
-              </tr>
-              <tr>
-                  <td><strong>Coach: </strong> <?php echo $bookings['coach']; ?> </td>
-              </tr>
-          </table>
-          <hr>
+      <h2>Bookings</h2>
+      <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+      <div class="row">
+      <?php while($bookings = mysqli_fetch_assoc($bookingsResult)) {
+        $venue_id = $bookings['venue_id'];
+
+        $venueSQL = "select * from venue where venue_id='$venue_id'";
+        $venueResult = mysqli_query($conn, $venueSQL);
+        $venue = mysqli_fetch_assoc($venueResult);
+
+        $venueid = $venue['venue_id'];
+
+        $gallerysql = "select * from gallery where venue_id = '$venueid' and image_id = 1";
+        $galleryResult = mysqli_query($conn, $gallerysql);
+
+        ?>
+        <div class="card" style="width: 18rem; margin: 20px;">
+          <img class="card-img-top" src="include/uploads/<?php
+          $gallery = mysqli_fetch_assoc($galleryResult);
+
+          if ($gallery['venue_image'] == ""){
+             echo "default.jpg";}
+            else {
+              echo $gallery['venue_image'];
+            }?>">
+            <div class="card-body">
+              <h5 class="card-title">BOOKING <?php echo $bookings['booking_id']; ?> </h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>Court Name: </strong> <?php echo $bookings['court_name']; ?></li>
+              <li class="list-group-item"><strong>Venue Name: </strong> <?php echo $venue['venue_name']; ?></li>
+              <li class="list-group-item"><strong>Date: </strong> <?php echo $bookings['date']; ?> </li>
+              <li class="list-group-item"><strong>Time: </strong> <?php echo $bookings['time']; ?></li>
+              <li class="list-group-item"><strong>Coach: </strong> <?php echo $bookings['coach']; ?> </li>
+            </ul>
+            <div class="card-body">
+              <a href="editcustomerbookings.php?id=<?php echo $bookings['booking_id']; ?>" class="card-link">Edit Booking</a>
+            </div>
+          </div>
       <?php } ?>
+
 </div>
 
 <?php include ('footer.php'); ?>

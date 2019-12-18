@@ -52,32 +52,30 @@ require_once ("database.php");
       <br>
       <h2>Bookings</h2>
       <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+      <div class="row">
       <?php while($bookings = mysqli_fetch_assoc($bookingsResult)) { ?>
-          <table>
-              <tr>
-                 <td><strong> BOOKING <?php echo $bookings['booking_id']; ?> </strong></td>
-                 <hr>
-              </tr>
-              <a href="attendance.php?id=<?php echo $bookings['booking_id']; ?>" class="text-primary">Attendance >></a>
-              <tr>
-                  <td><strong>Court Name: </strong> <?php echo $bookings['court_name']; ?></td>
-              </tr>
-              <tr>
-                  <td><strong>Player Name: </strong> <?php echo $bookings['customer_name']; ?></td>
-              </tr>
-              <tr>
-                  <td><strong>Date: </strong> <?php echo $bookings['date']; ?> </td>
-              </tr>
-              <tr>
-                  <td><strong>Time: </strong> <?php echo $bookings['time']; ?> </td>
-              </tr>
-              <tr>
-                  <td><strong>Coach: </strong> <?php echo $bookings['coach']; ?> </td>
-              </tr>
-              <tr>
-                  <td><strong>Attendance: </strong> <?php echo $bookings['attendance']; ?> </td>
-              </tr>
-          </table>
+        <div class="card" style="width: 18rem; margin: 20px;">
+          <img class="card-img-top" src="include/uploads/<?php
+          if ($venue['venue_image'] == ""){
+             echo "default.jpg";}
+            else {
+              echo $venue['venue_image'];
+            }?>">
+            <div class="card-body">
+              <h5 class="card-title">BOOKING <?php echo $bookings['booking_id']; ?> </h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>Court Name: </strong> <?php echo $bookings['court_name']; ?></li>
+              <li class="list-group-item"><strong>Player Name: </strong> <?php echo $bookings['customer_name']; ?></li>
+              <li class="list-group-item"><strong>Date: </strong> <?php echo $bookings['date']; ?> </li>
+              <li class="list-group-item"><strong>Time: </strong> <?php echo $bookings['time']; ?></li>
+              <li class="list-group-item"><strong>Coach: </strong> <?php echo $bookings['coach']; ?> </li>
+            </ul>
+            <div class="card-body">
+              <a href="editvenuebookings.php?id=<?php echo $bookings['booking_id']; ?>" class="card-link">Edit Booking</a>
+              <a href="editvenuebookings.php?id=<?php echo $bookings['booking_id']; ?>" class="card-link">Cancel Booking</a>
+            </div>
+          </div>
       <?php } ?>
 </div>
 
