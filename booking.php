@@ -41,6 +41,8 @@
         $venueSQL = "select * from venue where venue_id='$venue_id'";
         $venueResult = mysqli_query($conn, $venueSQL);
         $venue = mysqli_fetch_assoc($venueResult);
+
+        $coachsql = mysqli_query($conn,"SELECT * FROM coaches where venue_id='$venue_id'");
 }
 }
     ?>
@@ -60,13 +62,26 @@
         <input id="date" class="form-control" name="date" type="date">
         <label for="time">Time Range</label>
         <div class="form-control">
-         <select name="time"><?php
+         <select name="time">
+           <option class="form-control" name="time">Select Time</option>
+           <?php
                 while ($row = mysqli_fetch_assoc($sql)) { ?>
 
                      <option class="form-control" name="time" value="<?php echo $row["time_range"]; ?>"><?php echo $row["time_range"]; ?></option>
 
             <?php  } ?>
             </select>
+          </div>
+          <br>
+            <label for="coach">Coach</label>
+            <div class="form-control">
+             <select name="coach">
+               <option class="form-control" name="coach">No Coach</option>
+               <?php
+                    while ($row1 = mysqli_fetch_assoc($coachsql)) { ?>
+                         <option class="form-control" name="coach" value="<?php echo $row1["coach_name"]; ?>"><?php echo $row1["coach_name"]; ?></option>
+                <?php  } ?>
+                </select>
          </div>
          <br>
          <input class="btn btn-primary" type="Submit" name="submit" id="submit" value="Book">

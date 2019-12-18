@@ -118,7 +118,9 @@ customer_name TINYTEXT REFERENCES customer(customer_name),
 
 time TINYTEXT,
 
-date DATE
+date DATE,
+
+coach TINYTEXT
 
 );
 
