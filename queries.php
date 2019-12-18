@@ -35,8 +35,7 @@ venue_desc LONGTEXT,
 venue_phone int(12),
 
 venue_type TINYTEXT,
-
-venue_image varchar(200));
+);
 
 
 

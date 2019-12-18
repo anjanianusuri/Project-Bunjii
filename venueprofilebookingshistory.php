@@ -55,12 +55,6 @@ require_once ("database.php");
       <div class="row">
       <?php while($bookings = mysqli_fetch_assoc($bookingsResult)) { ?>
         <div class="card" style="width: 18rem; margin: 20px;">
-          <img class="card-img-top" src="include/uploads/<?php
-          if ($venue['venue_image'] == ""){
-             echo "default.jpg";}
-            else {
-              echo $venue['venue_image'];
-            }?>">
             <div class="card-body">
               <h5 class="card-title">BOOKING <?php echo $bookings['booking_id']; ?> </h5>
             </div>
@@ -70,10 +64,10 @@ require_once ("database.php");
               <li class="list-group-item"><strong>Date: </strong> <?php echo $bookings['date']; ?> </li>
               <li class="list-group-item"><strong>Time: </strong> <?php echo $bookings['time']; ?></li>
               <li class="list-group-item"><strong>Coach: </strong> <?php echo $bookings['coach']; ?> </li>
+              <li class="list-group-item"><strong>Attendance: </strong> <?php echo $bookings['attendance']; ?> </li>
             </ul>
             <div class="card-body">
-              <a href="editvenuebookings.php?id=<?php echo $bookings['booking_id']; ?>" class="card-link">Edit Booking</a>
-              <a href="editvenuebookings.php?id=<?php echo $bookings['booking_id']; ?>" class="card-link">Cancel Booking</a>
+              <a href="attendance.php?id=<?php echo $bookings['booking_id']; ?>" class="text-primary">Attendance >></a>
             </div>
           </div>
       <?php } ?>

@@ -75,6 +75,7 @@ require_once ("database.php");
               <li class="list-group-item"><strong>Date: </strong> <?php echo $bookings['date']; ?> </li>
               <li class="list-group-item"><strong>Time: </strong> <?php echo $bookings['time']; ?></li>
               <li class="list-group-item"><strong>Coach: </strong> <?php echo $bookings['coach']; ?> </li>
+              <li class="list-group-item"><strong>Attendance: </strong> <?php echo $bookings['attendance']; ?> </li>
             </ul>
           </div>
       <?php } ?>
