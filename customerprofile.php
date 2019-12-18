@@ -34,8 +34,10 @@ require_once ("database.php");
                         <li class="nav-item">
                             <a class="nav-link active" href="venueprofile.php">Profile</a></li>
                         <li class="nav-item">
-                                <a class="nav-link" href="customerprofilebookings.php">Bookings</a>
+                                <a class="nav-link" href="customerprofilebookings.php">Current Bookings</a>
                         </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="customerprofilebookingshistory.php">Booking History</a>
             </ul>
         </div>
       </div>

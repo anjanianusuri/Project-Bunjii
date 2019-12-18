@@ -18,13 +18,13 @@ require_once ("database.php");
 
         $customer_id = $customer['customer_id'];
 
-        $bookingsSQL = "select * from booking where customer_id='$customer_id' and date >= curdate()";
+        $bookingsSQL = "select * from booking where customer_id='$customer_id' and date < curdate()";
         $bookingsResult = mysqli_query($conn, $bookingsSQL);
 
     }
 ?>
 <div class="container">
-  <h1>CURRENT BOOKINGS</h1>
+  <h1>BOOKING HISTORY</h1>
   <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
     <div class="row">
         <div class="container">
@@ -33,9 +33,9 @@ require_once ("database.php");
                       <li class="nav-item">
                           <a class="nav-link" href="customerprofile.php">Profile</a></li>
                       <li class="nav-item">
-                              <a class="nav-link active" href="customerprofilebookings.php">Current Bookings</a>
+                              <a class="nav-link" href="customerprofilebookings.php">Current Bookings</a>
                       <li class="nav-item">
-                              <a class="nav-link" href="customerprofilebookingshistory.php">Booking History</a>
+                              <a class="nav-link active" href="customerprofilebookingshistory.php">Booking History</a>
                     </li>
         </ul>
     </div>
@@ -52,7 +52,6 @@ require_once ("database.php");
                 $venueResult = mysqli_query($conn, $venueSQL);
                 $venue = mysqli_fetch_assoc($venueResult);
               ?>
-              <a href="editcustomerbookings.php?id=<?php echo $bookings['booking_id']; ?>" class="text-primary">Edit Booking >></a>
               <tr>
                   <td><strong>Venue Name: </strong> <?php echo $venue['venue_name']; ?></td>
               </tr>
