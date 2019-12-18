@@ -71,6 +71,9 @@ require_once ("database.php");
               <tr>
                   <td><strong>Time: </strong> <?php echo $bookings['time']; ?> </td>
               </tr>
+              <tr>
+                  <td><strong>Coach: </strong> <?php echo $bookings['coach']; ?> </td>
+              </tr>
           </table>
       <?php } ?>
 </div>

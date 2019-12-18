@@ -32,7 +32,7 @@ if(isset($_SESSION['user'])) {
         <form action="include/editvenuebookings.inc.php" method="POST">
             <label><strong>Booking ID</strong></label>
             <input id="bookingid" class="form-control" name="bookingid" value= "<?php echo $booking['booking_id'];?>" readonly>
-            <label><strong>Venue Name</strong></label>
+            <label><strong>Customer Name</strong></label>
             <input id="customername" class="form-control" name="customername" value= "<?php echo $booking['customer_name'];?>" readonly>
             <label><strong>Court Name</strong></label>
             <input id="courtname" class="form-control" name="courtname" value= "<?php echo $booking['court_name'];?>" readonly>

@@ -61,8 +61,7 @@
         <label for="date">Date</label>
         <input id="date" class="form-control" name="date" type="date">
         <label for="time">Time Range</label>
-        <div class="form-control">
-         <select name="time">
+         <select class="form-control" name="time">
            <option class="form-control" name="time">Select Time</option>
            <?php
                 while ($row = mysqli_fetch_assoc($sql)) { ?>
@@ -71,18 +70,15 @@
 
             <?php  } ?>
             </select>
-          </div>
           <br>
             <label for="coach">Coach</label>
-            <div class="form-control">
-             <select name="coach">
+             <select class="form-control" name="coach">
                <option class="form-control" name="coach">No Coach</option>
                <?php
                     while ($row1 = mysqli_fetch_assoc($coachsql)) { ?>
                          <option class="form-control" name="coach" value="<?php echo $row1["coach_name"]; ?>"><?php echo $row1["coach_name"]; ?></option>
                 <?php  } ?>
                 </select>
-         </div>
          <br>
          <input class="btn btn-primary" type="Submit" name="submit" id="submit" value="Book">
 

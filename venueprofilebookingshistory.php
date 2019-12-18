@@ -58,6 +58,7 @@ require_once ("database.php");
                  <td><strong> BOOKING <?php echo $bookings['booking_id']; ?> </strong></td>
                  <hr>
               </tr>
+              <a href="attendance.php?id=<?php echo $bookings['booking_id']; ?>" class="text-primary">Attendance >></a>
               <tr>
                   <td><strong>Court Name: </strong> <?php echo $bookings['court_name']; ?></td>
               </tr>
@@ -69,6 +70,12 @@ require_once ("database.php");
               </tr>
               <tr>
                   <td><strong>Time: </strong> <?php echo $bookings['time']; ?> </td>
+              </tr>
+              <tr>
+                  <td><strong>Coach: </strong> <?php echo $bookings['coach']; ?> </td>
+              </tr>
+              <tr>
+                  <td><strong>Attendance: </strong> <?php echo $bookings['attendance']; ?> </td>
               </tr>
           </table>
       <?php } ?>

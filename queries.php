@@ -120,7 +120,9 @@ time TINYTEXT,
 
 date DATE,
 
-coach TINYTEXT
+coach TINYTEXT,
+
+attendance TINYTEXT
 
 );
 

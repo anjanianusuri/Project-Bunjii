@@ -64,6 +64,12 @@ require_once ("database.php");
               <tr>
                   <td><strong>Time: </strong> <?php echo $bookings['time']; ?> </td>
               </tr>
+              <tr>
+                  <td><strong>Coach: </strong> <?php echo $bookings['coach']; ?> </td>
+              </tr>
+              <tr>
+                  <td><strong>Attendance: </strong> <?php echo $bookings['attendance']; ?> </td>
+              </tr>
           </table>
           <hr>
       <?php } ?>
