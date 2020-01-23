@@ -24,7 +24,7 @@ require_once ("database.php");
         $coachesSQL = "select * from coaches where venue_id='$venue_id'";
         $coachesResult = mysqli_query($conn, $coachesSQL);
 
-        $bookingsSQL = "select * from booking where venue_id='$venue_id' and date > curdate()";
+        $bookingsSQL = "select * from booking where venue_id='$venue_id' and date >= curdate()";
         $bookingsResult = mysqli_query($conn, $bookingsSQL);
 
     }
